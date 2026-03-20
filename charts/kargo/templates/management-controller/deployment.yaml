@@ -84,6 +84,10 @@ spec:
         {{- with (concat .Values.global.envFrom .Values.managementController.envFrom) }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
+        ports:
+        - name: metrics
+          containerPort: 8080
+          protocol: TCP
         {{- if .Values.kubeconfigSecrets.kargo }}
         volumeMounts:
         - mountPath: /etc/kargo/kubeconfigs

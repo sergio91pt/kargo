@@ -88,6 +88,9 @@ spec:
         - containerPort: 8080
           name: {{ if .Values.externalWebhooksServer.tls.enabled }}"https"{{ else }}"http"{{ end }}
           protocol: TCP
+        - name: metrics
+          containerPort: 8080
+          protocol: TCP
         {{- if .Values.externalWebhooksServer.probes.enabled }}
         livenessProbe:
           httpGet:

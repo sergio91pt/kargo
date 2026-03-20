@@ -84,6 +84,10 @@ spec:
         {{- with (concat .Values.global.envFrom .Values.controller.envFrom) }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
+        ports:
+        - name: metrics
+          containerPort: 8080
+          protocol: TCP
         volumeMounts:
         - mountPath: /tmp
           name: tmp-data
