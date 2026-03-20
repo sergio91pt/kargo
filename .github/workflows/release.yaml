@@ -27,10 +27,10 @@ jobs:
     - name: Determine which repository to use
       id: chart_repo
       run: |
-        REPO=ghcr.io/akuity/kargo-charts
+        REPO=ghcr.io/sergio91pt/kargo-charts
         if ${{ github.event_name != 'release' }}
         then
-        REPO=ghcr.io/akuity/kargo-charts-unstable
+        REPO=ghcr.io/sergio91pt/kargo-charts-unstable
         fi
         echo "Repository is set to: $REPO"
         echo "chart_repo=$REPO" >> $GITHUB_OUTPUT
@@ -40,7 +40,7 @@ jobs:
         VERSION=${{ github.ref_name }}
         if ${{ github.event_name != 'release' }}
         then
-        VERSION=0.0.0-unstable-${{ github.sha }}
+        VERSION=0.0.1-unstable-${{ github.sha }}
         fi
         echo "VERSION is set to: $VERSION"
         echo "version=$VERSION" >> $GITHUB_OUTPUT
