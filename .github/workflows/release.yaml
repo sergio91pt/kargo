@@ -40,7 +40,7 @@ jobs:
         VERSION=${{ github.ref_name }}
         if ${{ github.event_name != 'release' }}
         then
-        VERSION=0.0.1-unstable-${{ github.sha }}
+        VERSION=0.0.1-unstable+${{ github.sha }}
         fi
         echo "VERSION is set to: $VERSION"
         echo "version=$VERSION" >> $GITHUB_OUTPUT
