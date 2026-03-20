@@ -86,7 +86,7 @@ spec:
         {{- end }}
         ports:
         - name: metrics
-          containerPort: 8080
+          containerPort: 8081
           protocol: TCP
         volumeMounts:
         - mountPath: /tmp
